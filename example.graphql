@@ -29,7 +29,31 @@
 # Default endpoint is an instance of https://www.graph.cool/
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+
+
+# emails[String]! - this means list cannot be null but list's element can be null
+# emails[String!] - this means list can be null but list's element cannpt be null
+# emails[String!]! - both them cannot be null
+#
+#
+#
+
+
 scalar Date
+
+type Employee{
+  name:String!
+  emails:[String] #list
+  salary(
+    currency:Currency=AZN #default value
+    backCode:String
+  ):Float
+}
+
+enum Currency{
+  AZN
+  TL
+}
 
 type User{
   id: ID!
