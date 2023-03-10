@@ -1,0 +1,13 @@
+query get2Countries($firstCountry:ID!,$secondCountry:ID!){
+  azerbaijan:country(code:$firstCountry){
+    ...countryInfo
+  }
+  turkey:country(code:$secondCountry){
+    ...countryInfo
+  }
+}
+fragment countryInfo on Country{
+  code
+  name
+  phone @skip(if:true)
+}
